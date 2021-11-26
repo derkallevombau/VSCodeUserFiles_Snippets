@@ -47,5 +47,35 @@
 		"prefix": ["scriptAbsPath", "getScriptAbsPath", "absPathOfScript", "getAbsPathOfScript"],
 		"description": "Get absolute path of script or link to it no matter how it has been invoked.",
 		"body": ["$(cd \\$(dirname \\$0); pwd)/\\$(basename \\$0)"]
+	},
+	"Safely use getopts in sourced script":
+	{
+		"prefix": "getoptsInSourcedScript",
+		"body":
+		[
+			"if ((OPTIND != 1)); then",
+			"\techo -n \"Error: \\$(basename \\$0): \"",
+			"\t[[ \\${BASH_FUNCNAME[0]} ]] && echo -n \"In function \\${BASH_FUNCNAME[0]}, line \\${BASH_LINENO[0]}: \" || echo -n \"Line: \\${LINENO[0]}: \"",
+			"\techo \"OPTIND == \\$OPTIND > 1.\"",
+			"\techo 'Your script was about to call getopts, but a script in your sourcing chain'",
+			"\techo -e \"is still using getopts. Exiting.\\n\"",
+			"\tlocal callTrace i=0; while callTrace+=\\$(caller \\$i); do echo >/dev/null; done",
+			"\t[[ \\$callTrace ]] && echo -e \"\\n----- Call Trace -----\\n\\$callTrace\\n\"",
+			"\texit 1",
+			"fi\n",
+			"local opt\n",
+			"while getopts '$1' opt; do",
+			"\tcase \\$opt in",
+			"\t\t$2)",
+			"\t\t;;$0",
+			"\tesac",
+			"done\n",
+			"# Remove option args from positional parameters.",
+			"# N.B.: After reading all option args, \\$OPTIND is the index of the first",
+			"# non-option arg, thus \\$((OPTIND - 1)) is the number of option args.",
+			"shift \\$((OPTIND - 1))\n",
+			"# Reset \\$OPTIND to indicate we have finished using getopts.",
+			"OPTIND=1"
+		]
 	}
 }
