@@ -55,7 +55,7 @@
 		[
 			"if ((OPTIND != 1)); then",
 			"\techo -n \"Error: \\$(basename \\$0): \"",
-			"\t[[ \\${BASH_FUNCNAME[0]} ]] && echo -n \"In function \\${BASH_FUNCNAME[0]}, line \\${BASH_LINENO[0]}: \" || echo -n \"Line: \\${LINENO[0]}: \"",
+			"\techo -n \"In function \\${BASH_FUNCNAME[0]}, line \\${BASH_LINENO[0]}: \"",
 			"\techo \"OPTIND == \\$OPTIND > 1.\"",
 			"\techo 'Your script was about to call getopts, but a script in your sourcing chain'",
 			"\techo -e \"is still using getopts. Exiting.\\n\"",
