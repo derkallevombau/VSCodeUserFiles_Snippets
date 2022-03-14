@@ -27,4 +27,23 @@
 			"},$0"
 		]
 	},
+
+	// Project Task snippets
+
+	"Empty object for project Tasks":
+	{
+		"prefix": "projTasksObj",
+		"body":
+		[
+			"\"tasks\":",
+			"{",
+			"\t\"version\": \"2.0.0\",",
+			"\t\"tasks\":",
+			"\t[",
+			"\t\t$0",
+			"\t]",
+			"}"
+		]
+	},
+
 }
