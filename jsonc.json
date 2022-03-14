@@ -46,4 +46,30 @@
 		]
 	},
 
+	"Project Tasks to diff and update a file":
+	{
+		"prefix": "projTasksDiffAndUpdate",
+		"description": "Project Tasks to diff a certain file of the project against its actually used counterpart and update it in both directions.",
+		"body":
+		[
+			"{",
+			"\t\"label\": \"${1:fileName}${2:additionalInfo}: Diff ${3:counterpartDesc} ${1:fileName} and this ${1:fileName}\",",
+			"\t\"type\": \"shell\",",
+			"\t\"command\": \"diff --color=always ${4:counterpartDir}/${1:fileName} ${5:workspaceDir}/${1:fileName}\",",
+			"\t\"problemMatcher\": []",
+			"},",
+			"{",
+			"\t\"label\": \"${1:fileName}${2:additionalInfo}: Copy ${3:counterpartDesc} ${1:fileName} to this ${1:fileName}\",",
+			"\t\"type\": \"shell\",",
+			"\t\"command\": \"cp -a ${4:counterpartDir}/${1:fileName} ${5:workspaceDir}\",",
+			"\t\"problemMatcher\": []",
+			"},",
+			"{",
+			"\t\"label\": \"${1:fileName}${2:additionalInfo}: Copy this ${1:fileName} to ${3:counterpartDesc} ${1:fileName}\",",
+			"\t\"type\": \"shell\",",
+			"\t\"command\": \"cp -a ${5:workspaceDir}/${1:fileName} ${4:counterpartDir}\",",
+			"\t\"problemMatcher\": []",
+			"},",
+		]
+	}
 }
