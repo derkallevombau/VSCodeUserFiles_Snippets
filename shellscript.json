@@ -46,7 +46,7 @@
 	{
 		"prefix": "scriptAbsPath",
 		"description": "Get absolute path of script or link to it no matter how it has been invoked.",
-		"body": ["$(cd \\$(dirname \\$0); pwd)/\\$(basename \\$0)"]
+		"body": ["$(cd \\$(dirname  \"\\$0\"); pwd)/\\$(basename \"\\$0\")"]
 	},
 	"Safely use getopts in a function":
 	{
