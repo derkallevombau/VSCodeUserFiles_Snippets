@@ -44,7 +44,7 @@
 	},
 	"Get absolute path of script":
 	{
-		"prefix": ["scriptAbsPath", "getScriptAbsPath", "absPathOfScript", "getAbsPathOfScript"],
+		"prefix": "scriptAbsPath",
 		"description": "Get absolute path of script or link to it no matter how it has been invoked.",
 		"body": ["$(cd \\$(dirname \\$0); pwd)/\\$(basename \\$0)"]
 	},
