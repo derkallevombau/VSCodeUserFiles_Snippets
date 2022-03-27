@@ -98,4 +98,72 @@
 			"shift \\$((OPTIND - 1))\n"
 		]
 	},
+	"Prompt user for choice (Yn)":
+	{
+		"prefix": "prompt_choice_Yn",
+		"body":
+		[
+			"echo -en \"\\e[1m\\e[97m${1:promptText}\\e[0m \\e[97m[Y/n] \\e[1m\"\n",
+			"command -v tput >/dev/null && haveTput=1",
+			"((haveTput)) && tput sc\n",
+			"while true; do",
+			"read -n 1 ans\n",
+			"\tcase \\$ans in",
+			"\t\t'')",
+			"\t\t\techo -en \"\\e[0m\"",
+			"\t\t\t;;&",
+			"\t\t[yYnN])",
+			"\t\t\techo -e \"\\e[0m\"",
+			"\t\t\t;;&",
+			"\t\t[yY]|'')",
+			"\t\t\t${2:commandsY}",
+			"",
+			"\t\t\tbreak",
+			"\t\t\t;;",
+			"\t\t[nN])",
+			"\t\t\t${3:commandsN}",
+			"",
+			"\t\t\tbreak",
+			"\t\t\t;;",
+			"\t\t*)",
+			"\t\t\t((haveTput)) && tput rc && tput el # Restore cursor pos and clear to end of line (see man terminfo).",
+			"\t\t\t;;",
+			"\tesac",
+			"done",
+		]
+	},
+	"Prompt user for choice (yN)":
+	{
+		"prefix": "prompt_choice_yN",
+		"body":
+		[
+			"echo -en \"\\e[1m\\e[97m${1:promptText}\\e[0m \\e[97m[y/N] \\e[1m\"\n",
+			"command -v tput >/dev/null && haveTput=1",
+			"((haveTput)) && tput sc\n",
+			"while true; do",
+			"read -n 1 ans\n",
+			"\tcase \\$ans in",
+			"\t\t'')",
+			"\t\t\techo -en \"\\e[0m\"",
+			"\t\t\t;;&",
+			"\t\t[yYnN])",
+			"\t\t\techo -e \"\\e[0m\"",
+			"\t\t\t;;&",
+			"\t\t[yY])",
+			"\t\t\t${2:commandsY}",
+			"",
+			"\t\t\tbreak",
+			"\t\t\t;;",
+			"\t\t[nN]|'')",
+			"\t\t\t${3:commandsN}",
+			"",
+			"\t\t\tbreak",
+			"\t\t\t;;",
+			"\t\t*)",
+			"\t\t\t((haveTput)) && tput rc && tput el # Restore cursor pos and clear to end of line (see man terminfo).",
+			"\t\t\t;;",
+			"\tesac",
+			"done",
+		]
+	},
 }
