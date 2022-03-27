@@ -32,4 +32,13 @@
 			"$BLOCK_COMMENT_START $0 $BLOCK_COMMENT_END"
 		]
 	},
+	"Prompt user to press any key":
+	{
+		"prefix": "prompt_pressAnyKey",
+		"description": "Wait until any key is pressed. Can be used to keep a terminal window open after the process started via ‘gnome-terminal -- <command>’ has exited.",
+		"body":
+		[
+			"echo -en \"\\n\\e[1m\\e[97mPress any key to close the window.\"; read -n 1"
+		]
+	},
 }
