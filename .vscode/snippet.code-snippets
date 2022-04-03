@@ -24,12 +24,33 @@
 			"\"${1:snippetName}\":",
 			"{",
 			"\t\"prefix\": \"$2\",",
-			"\t\"description\": \"$3\",",
 			"\t\"body\":",
 			"\t[",
 			"\t\t$0",
 			"\t]",
 			"},"
+		]
+	},
+
+	"Snippet description (String)":
+	{
+		"prefix": "snippedDescString",
+		"body":
+		[
+			"\"description\": \"$0\",",
+		]
+	},
+
+	"Snippet description (Array)":
+	{
+		"prefix": "snippedDescArray",
+		"body":
+		[
+			"\"description\":",
+			"[",
+			"\t\"$1\",",
+			"\t\"$2\",$0",
+			"],"
 		]
 	},
 
