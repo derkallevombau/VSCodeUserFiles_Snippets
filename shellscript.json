@@ -170,4 +170,18 @@
 			"done",
 		]
 	},
+
+	"Run command with nullglob (single line)":
+	{
+		"prefix": "runWithNullglobSingleLine",
+		"description":
+		[
+			"Runs the specified command with nullglob.",
+			"Leaving nullglob on for the rest of a script can cause strange side effects (but I don't remember them)."
+		],
+		"body":
+		[
+			"shopt -s nullglob; ${1:command}; shopt -u nullglob",
+		]
+	},
 }
