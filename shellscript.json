@@ -184,4 +184,19 @@
 			"shopt -s nullglob; ${1:command}; shopt -u nullglob",
 		]
 	},
+	"Run command with nullglob":
+	{
+		"prefix": "runWithNullglob",
+		"description":
+		[
+			"Runs the specified command with nullglob.",
+			"Leaving nullglob on for the rest of a script can cause strange side effects (but I don't remember them)."
+		],
+		"body":
+		[
+			"shopt -s nullglob",
+			"${1:command}",
+			"shopt -u nullglob",
+		]
+	},
 }
