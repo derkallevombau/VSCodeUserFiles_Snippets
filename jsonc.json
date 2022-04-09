@@ -100,6 +100,7 @@
 	//
 	// \\\\\\$x			\$x								Absolutely no idea. This is really strange!
 
+	// See "Prompt user for choice (Yn)" in shellscript.json for a version for usage within a shell script.
 	"Prompt user for choice (Yn) (Inline)":
 	{
 		"prefix": "prompt_choice_inline_Yn",
@@ -109,6 +110,8 @@
 			"echo -en \\\"\\\\\\e[1m\\\\\\e[97m${1:promptText}\\\\\\e[0m \\\\\\e[97m[Y/n] \\\\\\e[1m\\\"; command -v tput >/dev/null && haveTput=1; ((haveTput)) && tput sc; while true; do read -n 1 ans; case \\$ans in '') echo -en \\\"\\\\\\e[0m\\\" ;;& [yYnN]) echo -e \\\"\\\\\\e[0m\\\" ;;& [yY]|'') ${2:commandsY}; break ;; [nN]) ${3:commandsN}; break ;; *) ((haveTput)) && tput rc && tput el ;; esac; done"
 		]
 	},
+
+	// See "Prompt user for choice (yN)" in shellscript.json for a version for usage within a shell script.
 	"Prompt user for choice (yN) (Inline)":
 	{
 		"prefix": "prompt_choice_inline_yN",
@@ -118,6 +121,8 @@
 			"echo -en \\\"\\\\\\e[1m\\\\\\e[97m${1:promptText}\\\\\\e[0m \\\\\\e[97m[y/N] \\\\\\e[1m\\\"; command -v tput >/dev/null && haveTput=1; ((haveTput)) && tput sc; while true; do read -n 1 ans; case \\$ans in '') echo -en \\\"\\\\\\e[0m\\\" ;;& [yYnN]) echo -e \\\"\\\\\\e[0m\\\" ;;& [yY]) ${2:commandsY}; break ;; [nN]|'') ${3:commandsN}; break ;; *) ((haveTput)) && tput rc && tput el ;; esac; done"
 		]
 	},
+
+	// See "Prompt user to press any key" in global.code-snippets for a version for usage within a shell script.
 	"Prompt user to press any key (escaped)":
 	{
 		"prefix": "prompt_pressAnyKey_escaped",
