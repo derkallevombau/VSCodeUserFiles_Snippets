@@ -32,6 +32,8 @@
 			"$BLOCK_COMMENT_START $0 $BLOCK_COMMENT_END"
 		]
 	},
+
+	// See "Prompt user to press any key (escaped)" in jsonc.json for a version for usage within a shell Task.
 	"Prompt user to press any key":
 	{
 		"prefix": "prompt_pressAnyKey",
