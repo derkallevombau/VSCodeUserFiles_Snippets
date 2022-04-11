@@ -202,4 +202,14 @@
 			"shopt -u nullglob",
 		]
 	},
+
+	"Test if an executable is available":
+	{
+		"prefix": "testIfExecutableAvailable",
+		"description": "Test if the supplied executable exists in a dir contained in $PATH.",
+		"body":
+		[
+			"command -v ${1:executableName} >/dev/null "
+		]
+	},
 }
