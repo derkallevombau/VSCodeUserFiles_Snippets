@@ -102,6 +102,7 @@
 		]
 	},
 
+	// See "Prompt user for choice (Yn)" in jsonc.json for a version for usage within a shell Task.
 	"Prompt user for choice (Yn)":
 	{
 		"prefix": "prompt_choice_Yn",
@@ -136,6 +137,8 @@
 			"done",
 		]
 	},
+
+	// See "Prompt user for choice (yN)" in jsonc.json for a version for usage within a shell Task.
 	"Prompt user for choice (yN)":
 	{
 		"prefix": "prompt_choice_yN",
