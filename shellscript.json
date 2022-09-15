@@ -212,4 +212,15 @@
 			"command -v ${1:executableName} >/dev/null "
 		]
 	},
+
+	// See "Prompt user to press any key (escaped)" in jsonc.json for a version for usage within a shell Task.
+	"Prompt user to press any key":
+	{
+		"prefix": "prompt_pressAnyKey",
+		"description": "Wait until any key is pressed.",
+		"body":
+		[
+			"echo -en \"\\n\\e[1m\\e[97mPress any key to close the window.\"; read -n 1"
+		]
+	},
 }
