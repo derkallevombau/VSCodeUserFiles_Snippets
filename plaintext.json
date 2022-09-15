@@ -1,0 +1,15 @@
+// Snippets for .desktop files
+
+{
+	"Desktop Action: Run in GNOME Terminal and keep it open":
+	{
+		"prefix": "desktopAction_runInGnomeTerminal",
+		"description": "Runs a shell command in GNOME Terminal and keeps it open until a key is pressed",
+		"body":
+		[
+			"[Desktop Action ${1:identifier}]",
+			"Name=${2:name}",
+			"Exec=gnome-terminal --wait -- bash -c '${3:command}; echo -en \"\\n\\e[1m\\e[97mPress any key to close the window.\"; read -n 1'"
+		]
+	}
+}
