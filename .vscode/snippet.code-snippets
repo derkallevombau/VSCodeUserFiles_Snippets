@@ -34,7 +34,7 @@
 
 	"Snippet description (String)":
 	{
-		"prefix": "snippedDescString",
+		"prefix": "snippetDescString",
 		"body":
 		[
 			"\"description\": \"$0\",",
@@ -43,7 +43,7 @@
 
 	"Snippet description (Array)":
 	{
-		"prefix": "snippedDescArray",
+		"prefix": "snippetDescArray",
 		"body":
 		[
 			"\"description\":",
