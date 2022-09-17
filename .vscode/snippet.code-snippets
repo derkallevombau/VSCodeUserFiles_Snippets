@@ -106,7 +106,7 @@
 			//       within between the outer ones.
 			//       The solution is to add a third backslash, although this should give
 			//       us \\"\\"; however, VS Code seems to handle this correctly.
-			"\\\"$0\\\""
+			"\\\"$1\\\"$0"
 		]
 	},
 }
