@@ -75,6 +75,30 @@
 
 	// Snippets for shell Tasks
 
+	"New shell Task":
+	{
+		"prefix": "shellTask",
+		"body":
+		[
+			"{",
+			"\t\"label\": \"$1\",",
+			"\t\"type\": \"shell\",",
+			"\t\"command\": \"$2\",",
+			"\t\"options\": { \"cwd\": \"\\${fileDirname}\" },",
+			"\t\"problemMatcher\": [],",
+			"\t\"presentation\":",
+			"\t{",
+			"\t\t\"echo\": true,",
+			"\t\t\"reveal\": \"always\",",
+			"\t\t\"focus\": false,",
+			"\t\t\"panel\": \"shared\",",
+			"\t\t\"showReuseMessage\": true,",
+			"\t\t\"clear\": true,",
+			"\t}",
+			"},"
+		]
+	},
+
 	// Escaping newlines, double quotes, ANSI color codes
 	// and variables in snippets to be used in shell Tasks
 	//
