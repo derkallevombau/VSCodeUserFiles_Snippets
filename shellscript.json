@@ -223,4 +223,13 @@
 			"echo -en \"\\n\\e[1m\\e[97mPress any key to close the window.\"; read -n 1"
 		]
 	},
+
+	"Repeat string":
+	{
+		"prefix": "repeatString",
+		"body":
+		[
+			"printf \"%.0s${1:string}\" \\$(seq 1 ${repeatTimes})"
+		]
+	},
 }
