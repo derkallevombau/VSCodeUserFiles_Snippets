@@ -39,7 +39,7 @@
 			"# But by using ‘bash -l’, you get the same effect as with ‘sudo -i’",
 			"# (-l is for bash what -i is for sudo).",
 			"# If you also use the run-in-screen boilerplate, place it before this one.",
-			"((\\$(id -u))) && exec sudo${1| -i , -E , , -E bash -l |}\"$(cd \\$(dirname \\$0); pwd)/$(basename \\$0)\" \"$@\""
+			"((\\$(id -u))) && exec sudo${1| -i , -E , , -E bash -l |}\"$(cd \"\\$(dirname \"\\$0\")\"; pwd)/$(basename \\$0)\" \"$@\""
 		]
 	},
 
