@@ -232,4 +232,34 @@
 			"printf \"%.0s${1:string}\" \\$(seq 1 ${repeatTimes})"
 		]
 	},
+
+	"Access a global var with unique name via local nameref in a lib script":
+	{
+		"prefix": "globalVarAsLocalNameref",
+		"description":
+		[
+			"Background:",
+			"When using non-local variables in scripts to be sourced, I used to",
+			"prepend an underscore so when VS Code shows them in a different script,",
+			"I know that these are \"private\"variables of a lib script.",
+			"However, to avoid collisions when two libs use e. g. _foo and are sourced",
+			"by the same script, I decided to use _<scriptName>_<varNamme>.",
+			"Since this gives unique, but very long variable names, I thought about",
+			"a better solution, and this is the result:",
+			"- Use ${BASH_SOURCE[0]} to get the name of the current script and use",
+			"  sed to turn chars not allowed in variable names into underscores.",
+			"- Use a local nameref to access the variable via a short name.",
+			"- Put the construct in a function that prints it after inserting the provided variable name",
+			"  so it can be executed via eval."
+		],
+		"body":
+		[
+			"# Usage: eval $(globalVarAsNameref <varName>) (within a function in a sourced script)",
+			"#",
+			"# This creates a global variable with unique name accessible via local nameref <varName>.",
+			"# Use if you need to persist data across multiple invocations of a function or share data between",
+			"# different functions within a lib script; just the typical use case for a variable at script level.",
+			"function _globalVarAsLocalNameref { echo \"local -n \\$1=_$(sed 's/[-.]/_/g' <<<\\${BASH_SOURCE[0]})_\\$1\"; }"
+		]
+	},
 }
