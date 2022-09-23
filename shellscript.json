@@ -250,7 +250,10 @@
 			"  sed to turn chars not allowed in variable names into underscores.",
 			"- Use a local nameref to access the variable via a short name.",
 			"- Put the construct in a function that prints it after inserting the provided variable name",
-			"  so it can be executed via eval."
+			"  so it can be executed via eval.",
+			"",
+			"Insert the snippet \"Access global var with unique name via local nameref in lib (command)\"",
+			"into a function to create a variable."
 		],
 		"body":
 		[
@@ -260,6 +263,23 @@
 			"# Use if you need to persist data across multiple invocations of a function or share data between",
 			"# different functions within a lib script; just the typical use case for a variable at script level.",
 			"function _globalVarAsLocalNameref { echo \"local -n \\$1=_$(sed 's/[-.]/_/g' <<<\\$(basename \\${BASH_SOURCE[0]}))_\\$1\"; }"
+		]
+	},
+
+	"Access global var with unique name via local nameref in lib (command)":
+	{
+		"prefix": "globalVarAsLocalNameref_func",
+		"description":
+		[
+			"The command to create a global variable with unique name",
+			"that can be accessed via local nameref.",
+			"",
+			"Insert the snippet \"Access global var with unique name via local nameref in lib (function)\"",
+			"to use this."
+		],
+		"body":
+		[
+			"eval $(globalVarAsNameref ${1:varName})"
 		]
 	},
 }
