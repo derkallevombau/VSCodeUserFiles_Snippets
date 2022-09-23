@@ -233,9 +233,9 @@
 		]
 	},
 
-	"Access a global var with unique name via local nameref in a lib script":
+	"Access global var with unique name via local nameref in lib (function)":
 	{
-		"prefix": "globalVarAsLocalNameref",
+		"prefix": "globalVarAsLocalNameref_func",
 		"description":
 		[
 			"Background:",
