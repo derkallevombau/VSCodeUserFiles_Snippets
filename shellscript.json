@@ -238,19 +238,6 @@
 		"prefix": "globalVarAsLocalNameref_func",
 		"description":
 		[
-			"Background:",
-			"When using non-local variables in scripts to be sourced, I used to",
-			"prepend an underscore so when VS Code shows them in a different script,",
-			"I know that these are \"private\"variables of a lib script.",
-			"However, to avoid collisions when two libs use e. g. _foo and are sourced",
-			"by the same script, I decided to use _<scriptName>_<varNamme>.",
-			"Since this gives unique, but very long variable names, I thought about",
-			"a better solution, and this is the result:",
-			"- Use ${BASH_SOURCE[0]} to get the name of the current script and use",
-			"  sed to turn chars not allowed in variable names into underscores.",
-			"- Use a local nameref to access the variable via a short name.",
-			"- Put the construct in a function that prints it after inserting the provided variable name",
-			"  so it can be executed via eval.",
 			"",
 			"Insert the snippet \"Access global var with unique name via local nameref in lib (command)\"",
 			"into a function to create a variable."
@@ -259,27 +246,44 @@
 		[
 			"# Usage: eval $(globalVarAsNameref <varName>) (within a function in a sourced script)",
 			"#",
-			"# This creates a global variable with unique name accessible via local nameref <varName>.",
-			"# Use if you need to persist data across multiple invocations of a function or share data between",
-			"# different functions within a lib script; just the typical use case for a variable at script level.",
-			"function _globalVarAsLocalNameref { echo \"local -n \\$1=_$(sed 's/[-.]/_/g' <<<\\$(basename \\${BASH_SOURCE[0]}))_\\$1\"; }"
 		]
 	},
 
 	"Access global var with unique name via local nameref in lib (command)":
 	{
-		"prefix": "globalVarAsLocalNameref_func",
+		"prefix": "globalVarAsLocalNameref_command",
 		"description":
 		[
-			"The command to create a global variable with unique name",
-			"that can be accessed via local nameref.",
+			"The command to create a global variable with unique name that can be accessed via local nameref.",
 			"",
-			"Insert the snippet \"Access global var with unique name via local nameref in lib (function)\"",
-			"to use this."
+			"Insert the snippet with prefix \"globalVarAsLocalNameref_source\" to use this."
 		],
 		"body":
 		[
-			"eval $(globalVarAsNameref ${1:varName})"
+			"eval $(globalVarAsLocalNameref ${1:varName})"
+		]
+	},
+
+	"Access global var with unique name via local nameref in lib (source)":
+	{
+		"prefix": "globalVarAsLocalNameref_source",
+		"description":
+		[
+			"This sources a lib containing a function that can be used to create a global variable with unique",
+			"name accessible via local nameref <varName>.",
+			"",
+			"Use if you need to persist data across multiple invocations of a function or share data between",
+			"different functions within a lib script; just the typical use case for a variable at script level.",
+			"",
+			"The global variable will be accessible via a short, convenient name whereas its true name will be",
+			"_<varName>_<basename of sourcing script with - and . replaced with _, if any>,",
+			"so you may use the same <varName> in multiple libs sourced by the same script without collisions.",
+			"",
+			"Insert the snippet with prefix \"globalVarAsLocalNameref_command\" into a function to create a variable."
+		],
+		"body":
+		[
+			". \"$scriptsCommonInclude/libglobal-var-as-local-nameref\"",
 		]
 	},
 }
