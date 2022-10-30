@@ -286,4 +286,22 @@
 			". \"$scriptsCommonInclude/libglobal-var-as-local-nameref\"",
 		]
 	},
+
+	"Shell Expansion: Array elements for quoting":
+	{
+		"prefix": "shellExpArrayElements",
+		"body":
+		[
+			"\\${$1[@]}"
+		]
+	},
+
+	"Shell Expansion: Number of Array elements":
+	{
+		"prefix": "shellExpNumOfArrayElements",
+		"body":
+		[
+			"\\${#$1[@]}"
+		]
+	},
 }
