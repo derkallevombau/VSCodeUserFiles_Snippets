@@ -60,7 +60,7 @@
 		"description": "New snippet body line with indentation level 0",
 		"body":
 		[
-			"\"$1,\",$0"
+			"\"$1\",$0"
 		]
 	},
 
@@ -71,7 +71,7 @@
 		"body":
 		[
 			// Escape the \t to have it inserted literally.
-			"\"\\t$1,\",$0"
+			"\"\\t$1\",$0"
 		]
 	},
 
@@ -81,7 +81,7 @@
 		"description": "New snippet body line with indentation level 2",
 		"body":
 		[
-			"\"\\t\\t$1,\",$0"
+			"\"\\t\\t$1\",$0"
 		]
 	},
 
@@ -91,7 +91,7 @@
 		"description": "New snippet body line with indentation level 3",
 		"body":
 		[
-			"\"\\t\\t\\t$1,\",$0"
+			"\"\\t\\t\\t$1\",$0"
 		]
 	},
 
