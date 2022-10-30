@@ -292,7 +292,7 @@
 		"prefix": "arrayElementsQuoted",
 		"body":
 		[
-			"\"\\${$1[@]}\""
+			"\"\\${${1:arrayName}[@]}\""
 		]
 	},
 
@@ -301,7 +301,7 @@
 		"prefix": "arrayElementCount",
 		"body":
 		[
-			"\\${#$1[@]}"
+			"\\${#${1:arrayName}[@]}"
 		]
 	},
 
