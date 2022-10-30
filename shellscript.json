@@ -304,4 +304,13 @@
 			"\\${#$1[@]}"
 		]
 	},
+
+	"Get file extension":
+	{
+		"prefix": "getFileExt",
+		"body":
+		[
+			"\\${${1:path}##*.}",
+		]
+	},
 }
