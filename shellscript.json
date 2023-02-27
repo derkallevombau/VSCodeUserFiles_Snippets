@@ -345,4 +345,17 @@
 			"}"
 		]
 	},
+
+	"Shell script doc comment quotes":
+	{
+		"prefix": "docQuotes",
+		"description":
+		[
+			"Inserts a pair of quotes (‘’, also used e. g. in the official Bash documentation)",
+			"suitable to quote code examples in a comment,",
+			"e. g. ‘foo='bar baz'’ or ‘echo -e \"foo\\n\"’.",
+			"You see, neither '' nor \"\" would be appropriate."
+		],
+		"body": "‘$1’"
+	},
 }
