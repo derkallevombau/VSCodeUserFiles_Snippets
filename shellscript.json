@@ -313,4 +313,36 @@
 			"\\${${1:path}##*.}",
 		]
 	},
+
+	"function error":
+	{
+		"prefix": "funcErr",
+		"body":
+		[
+			"# Prints an error message and exits with value 1.",
+			"# Arg: A string explaining the reason.",
+			"function error",
+			"{",
+			"\tlocal reason=\\$1",
+			"",
+			"\tlocal light_red='\\e[91m' bold='\\e[1m' norm='\\e[0m'",
+			"\tlocal msg=\"\\$bold\\${light_red}Error:\\$norm\\$light_red \\$reason\\$bold\"",
+			"",
+			"\tif [[ \\$reason == *. ]]; then",
+			"\t\tmsg+=' Exiting.'",
+			"\telif [[ \\$reason == *, ]]; then",
+			"\t\tmsg+=' exiting.'",
+			"\telse",
+			"\t\tmsg+='. Exiting.'",
+			"",
+			"\t\techo \"Warning: function error: Supplied reason doesn't end with dot or comma.\"",
+			"\t\techo -e \"I have appended a dot for you. Append the right punctuation mark to silence this warning.\\n\"",
+			"\tfi",
+			"",
+			"\techo -e \"\\$msg\\$norm\"",
+			"",
+			"\texit 1",
+			"}"
+		]
+	},
 }
