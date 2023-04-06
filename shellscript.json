@@ -251,7 +251,7 @@
 		"prefix": "repeatString",
 		"body":
 		[
-			"printf \"%.0s${1:string}\" \\$(seq 1 ${repeatTimes})"
+			"((${2:repeatTimes} > 0)) && printf \"%.0s${1:string}\" \\$(seq 1 ${2:repeatTimes})"
 		]
 	},
 
