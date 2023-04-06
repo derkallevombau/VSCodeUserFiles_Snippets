@@ -255,6 +255,15 @@
 		]
 	},
 
+	"Repeat string in command substitution":
+	{
+		"prefix": "repeatStringCmdSubst",
+		"body":
+		[
+			"$( ((${2:repeatTimes} > 0)) && printf \"%.0s${1:string}\" \\$(seq 1 ${2:repeatTimes}) )"
+		]
+	},
+
 	"Access global var with unique name via local nameref in lib (function)":
 	{
 		"prefix": "globalVarAsLocalNameref_func",
