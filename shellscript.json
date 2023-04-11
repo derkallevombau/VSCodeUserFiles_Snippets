@@ -460,6 +460,25 @@
 		]
 	},
 
+	"function removeArrayElement":
+	{
+		"prefix": "funcRemoveArrayElement",
+		"body":
+		[
+			"# Args: <arrayName> <i>",
+			"function removeArrayElement",
+			"{",
+			"\tlocal -n _array_=\\$1",
+			"",
+			"\tfor ((i = \\$2; i < \\${#_array_[@]} - 1; i++)); do",
+			"\t\t_array_[i]=${_array_[i + 1]}",
+			"\tdone",
+			"",
+			"\tunset _array_[-1]",
+			"}"
+		]
+	},
+
 	"Array element":
 	{
 		"prefix": "arrayElement",
