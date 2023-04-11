@@ -389,4 +389,38 @@
 		],
 		"body": "‘$1’"
 	},
+
+	"Multiline captures (3 captures per line, input from variable)":
+	{
+		"prefix": "multilineCaptures3Var",
+		"body":
+		[
+			"readarray -t captures <<<\\$(sed -En 's/${2:capRegexp}/\\1\\n\\2\\n\\3/p' <<<\\$${1:inputVarName})",
+			"",
+			"for ((i = 0; i < \\${#captures[@]}; i += 3)); do",
+			"\t${3:cap1}=\\${captures[i]}",
+			"\t${4:cap2}=\\${captures[i + 1]}",
+			"\t${5:cap3}=\\${captures[i + 2]}",
+			"",
+			"\t$0",
+			"done"
+		]
+	},
+
+	"Multiline captures (3 captures per line, input from command)":
+	{
+		"prefix": "multilineCaptures3Cmd",
+		"body":
+		[
+			"readarray -t captures <<<\\$(${1:command} | sed -En 's/${1:capRegexp}/\\1\\n\\2\\n\\3/p')",
+			"",
+			"for ((i = 0; i < \\${#captures[@]}; i += 3)); do",
+			"\t${3:cap1}=\\${captures[i]}",
+			"\t${4:cap2}=\\${captures[i + 1]}",
+			"\t${5:cap3}=\\${captures[i + 2]}",
+			"",
+			"\t$0",
+			"done"
+		]
+	},
 }
