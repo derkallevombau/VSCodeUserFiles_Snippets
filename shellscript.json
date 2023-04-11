@@ -437,15 +437,6 @@
 		]
 	},
 
-	"Shift array elements":
-	{
-		"prefix": "arrayElementsShift",
-		"body":
-		[
-			"for ((i = 0; i < ${2:n}; i++)); do unset ${1:arrayName}[i]; done"
-		]
-	},
-
 	"function shiftArray":
 	{
 		"prefix": "funcShiftArray",
