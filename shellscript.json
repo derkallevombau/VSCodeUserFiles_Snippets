@@ -445,4 +445,13 @@
 			"for ((i = 0; i < ${2:n}; i++)); do unset ${1:arrayName}[i]; done"
 		]
 	},
+
+	"Array element":
+	{
+		"prefix": "arrayElement",
+		"body":
+		[
+			"\\${${1:arrayName}[${2:subscript}]}"
+		]
+	},
 }
