@@ -446,6 +446,20 @@
 		]
 	},
 
+	"Shift array elements (Function)":
+	{
+		"prefix": "arrayElementsShiftFn",
+		"body":
+		[
+			"# Args: <array name> <n>",
+			"function shiftArray",
+			"{",
+			"\tlocal -n array=\\$1"
+			"\tfor ((i = 0; i < \\$2; i++)); do unset array[i]; done",
+			"}"
+		]
+	},
+
 	"Array element":
 	{
 		"prefix": "arrayElement",
