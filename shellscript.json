@@ -484,4 +484,13 @@
 			"\\${${1:arrayName}[${2:subscript}]}"
 		]
 	},
+
+	"Clear current line":
+	{
+		"prefix": "clearCurrentLine",
+		"body":
+		[
+			"tput cr; tput el # Carriage return and clear to end of line (see man terminfo)"
+		]
+	},
 }
