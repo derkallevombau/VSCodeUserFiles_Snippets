@@ -423,4 +423,17 @@
 			"done"
 		]
 	},
+
+	"Index-based iteration over array elements":
+	{
+		"prefix": "arrayIterIndexBased",
+		"body":
+		[
+			"for ((i = 0; i < \\${#${1:elementVarName}s[@]}; i++)); do",
+			"\t${1:elementVarName}=\\${${1:elementVarName}s[i]}",
+			"",
+			"\t$0",
+			"done"
+		]
+	},
 }
